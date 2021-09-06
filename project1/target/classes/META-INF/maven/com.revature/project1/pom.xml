@@ -29,6 +29,77 @@
 	    <version>8.0.26</version>
 	</dependency>
 	
+		<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>servlet-api</artifactId>
+	    <version>2.5</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.0-api -->
+	<dependency>
+	    <groupId>org.hibernate.javax.persistence</groupId>
+	    <artifactId>hibernate-jpa-2.0-api</artifactId>
+	    <version>1.0.1.Final</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jsp-api -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jsp-api</artifactId>
+	    <version>2.0</version>
+	    <scope>provided</scope>
+	</dependency> 
+<!-- test -->
+	<dependency>
+        <groupId>jstl</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+    </dependency> 
+    
+    <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>jstl</artifactId>
+         <version>1.2</version>
+    </dependency> 
+    
+<!-- 	<dependency>
+	    <groupId>org.apache.taglibs</groupId>
+	    <artifactId>taglibs-standard-impl</artifactId>
+		<version>1.2.3</version>
+    </dependency>  -->
+<!-- Thanks for using https://jar-download.com -->
+    
+	<dependency>
+		<groupId>org.apache.tomcat</groupId>
+		<artifactId>tomcat-servlet-api</artifactId>
+		<version>8.5.37</version>
+	</dependency>
+	
+<!-- 	<dependency>
+	<groupId>org.jboss.spec.javax.servlet.jstl</groupId>
+		<artifactId>jboss-jstl-api_1.2_spec</artifactId>
+		<version>1.0.0.Final</version>
+	</dependency> -->
+	<!-- Thanks for using https://jar-download.com -->
+	
+
+	<!-- https://mvnrepository.com/artifact/xalan/xalan -->
+<!-- 	<dependency>
+	    <groupId>xalan</groupId>
+	    <artifactId>xalan</artifactId>
+	    <version>2.7.1</version>
+	</dependency> -->
+	
+	
+<!-- https://mvnrepository.com/artifact/xalan/serializer -->
+	<!-- https://mvnrepository.com/artifact/xalan/serializer -->
+<!-- 	<dependency>
+	    <groupId>xalan</groupId>
+	    <artifactId>serializer</artifactId>
+	    <version>2.7.1</version>
+	</dependency>  -->
+	
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -36,4 +107,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
 </project>
