@@ -17,7 +17,7 @@
 		<!-- For generating tables, update updates table on start -->
 		<property name="hbm2ddl.auto">update</property>
 		<property name="show_sql">true</property>
-		<mapping class="revature.Ticket"/>
+		<mapping class="com.revature.Ticket"/>
 		<!-- <mapping class="revature.hibernate_demo_app.Address"/>  -->
 	</session-factory>
 </hibernate-configuration>

@@ -19,6 +19,34 @@
 			autofocus="">
 		<textarea name="ticket_description" class="form-control scroll"
 			placeholder="Description" style="height: 100px" required></textarea>
+
+		<fieldset class="form-group" style="text-align: left">
+			<div class="row">
+				<div class="col-sm-10">
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="ticket_type"
+							id="gridRadios1" value="lodging" checked> <label
+							class="form-check-label" for="gridRadios1"> Lodging </label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="ticket_type"
+							id="gridRadios2" value="travel"> <label
+							class="form-check-label" for="gridRadios2"> Travel </label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="ticket_type"
+							id="gridRadios2" value="food"> <label
+							class="form-check-label" for="gridRadios2"> Food </label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="ticket_type"
+							id="gridRadios2" value="other"> <label
+							class="form-check-label" for="gridRadios2"> Other </label>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
 		<p class="mt-5 mb-3 text-muted">© 2021 - All time</p>
 	</form>

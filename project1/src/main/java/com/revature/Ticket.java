@@ -1,4 +1,4 @@
-package revature;
+package com.revature;
 
 import java.util.Date;
 
@@ -16,15 +16,18 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "tickets_table")
 public class Ticket {
-	@Id //field behaves as primary key in table
-	@GeneratedValue //defaults to auto
-	private int id; // identifier property
+	@Id
+	@GeneratedValue  
+	private int id;
 	
-	private int userId; //foreign key in user/employee table
+	// foreign key in user/employee table
+	private int userId; 
 	
-
 	@Column(name = "ticket_type", nullable = false)
 	private String type;
+	
+	@Column(name = "ticket_status", nullable = false)
+	private String status;
 	
 	@Column(name = "reimbursement_amount")
 	private double reimbursementAmount;
@@ -37,11 +40,12 @@ public class Ticket {
 	
 	public Ticket () {};
 	
-	public Ticket (int id, int userId, String type, 
+	public Ticket (int id, int userId, String type, String status,
 			double reimbursementAmount, String description, Date timestamp) {
 		this.id = id;
 		this.userId = userId;
 		this.type = type;
+		this.status = status;
 		this.reimbursementAmount = reimbursementAmount;
 		this.description = description;
 	}
@@ -64,6 +68,14 @@ public class Ticket {
 
 	public String getType() {
 		return type;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void setType(String type) {
