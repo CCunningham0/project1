@@ -27,19 +27,19 @@ public class App {
 //        Transaction t = session.beginTransaction();
           
         
-//       // create employee
+       	//create employee
 //        Employee employee =new Employee();
 //        employee.setId(3);
-//        employee.setName("Meysam");
-//        employee.setEmail("l@gmail.com");
-//        employee.setUsername("lily123");
+//        employee.setName("Lily");
+//        employee.setEmail("s@gmail.com");
+//        employee.setUsername("sara23");
 //        employee.setPassword("123");
 //        EmployeeDao eDao = new EmployeeDaoImpl();
 //        
 //        
-//        try {
-// //       	eDao.updateEmployee(employee);
-////			eDao.addEmployee(employee);
+
+//        	eDao.updateEmployee(employee);
+//			eDao.addEmployee(employee);
 //        	List<Employee> emp = eDao.getAllEmployee();
 //        	System.out.println(emp);
 //		} catch (SQLException e) {
@@ -53,3 +53,4 @@ public class App {
         // commit the transaction
     }
 }
+

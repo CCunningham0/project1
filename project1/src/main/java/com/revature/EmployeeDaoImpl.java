@@ -62,7 +62,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		Query<Employee> q = session.createQuery("from Employee");
 	    List<Employee> resultList = q.list();
 	    return resultList;
-		
+	
 	}
 
 	@Override
