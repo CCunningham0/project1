@@ -6,6 +6,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.internal.build.AllowSysOut;
 
 public class HibernateSessionFactory {
+	
 	private static Session session = null;
 	private static SessionFactory factory = null;
 	
