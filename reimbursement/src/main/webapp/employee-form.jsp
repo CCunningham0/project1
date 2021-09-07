@@ -2,127 +2,86 @@
 <head>
 <meta charset="UTF-8">
 <title>Expense Reimbursement System</title>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript">
+</script>
+
+</head>
+	 
+<body style="background-color: #a3c2c2;">
 
 
-					
-	</script>
-
-	</head>
-	 <center>
-  <h1>Expense Reimbursement System</h1>
+ 
+<div class="container-fluid">
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-6" style="text-align:center;" >
+	 <h1>Expense Reimbursement System</h1>
         <h3>
          <a href="employee-list.jsp">Back to List of All Employees</a>
-         &nbsp;&nbsp;&nbsp;
-         <!-- <a href="list">List All Employee</a> -->
-         
         </h3>
- </center> 
-<body>
-<center>
-        <form method="post" action="add">
+
+	
+	<form action="http://localhost:8080/reimbursement/EmployeeServlet?action=add" method="post">
         <table>
-        	<tr>
-        		<td>Name:<input type="text" name="name" /></td>
-        	</tr>
-        	<tr>
-        		<td>Email:<input type="text" name="email" /></td>
-        	</tr>
-        	<tr>
-        		<td>Username:<input type="text" name="username" /></td>
-        	</tr>
-        	<tr>
-        		<td>Password:<input type="text" name="password" /></td>
-       		 </tr>
-       		 <tr>
-        		<td><input type="submit" value="register" /></td>
-        	</tr>
-        
-        </table>
-
-        </form>
- </center>
-
-<%-- 
- 
-    <div align="center">
-  <c:if test="${employee != null}">
-
-   <form action="update" method="post">
-   </c:if>
-        <c:if test="${employee == null}">
-    </div> 
- <center>    
-  <div>   
-   <form action="adde" method="post">
-        </c:if>
-        <table border="1" cellpadding="5">
-            <caption>
-             <h2>
-              <c:if test="${employee != null}">
-               Edit User
-              </c:if>
-              <c:if test="${employee == null}">
-               Add New User
-              </c:if>
-             </h2>
-            </caption>
-          <c:if test="${employee != null}">
-           <input type="hidden" name="id" value="<c:out value='${employee.id}' />" />
-          </c:if>            
-            <tr>
+        <tr>
                 <th>Employee Name: </th>
                 <td>
-                 <input type="text" name="name" size="45"
-                   value="<c:out value='${employee.name}' />"
+                 <input class="form-control" type="text" name="name" size="45"
+                   
                   />
                 </td>
             </tr>
             <tr>
                 <th>Employee Email: </th>
                 <td>
-                 <input type="text" name="email" size="45"
-                   value="<c:out value='${employee.email}' />"
+                 <input class="form-control"  type="text" name="email" size="45"
+                   
                  />
                 </td>
             </tr>
             <tr>
                 <th>Username: </th>
                 <td>
-                 <input type="text" name="username" size="15"
-                   value="<c:out value='${employee.username}' />"
+                 <input class="form-control"  type="text" name="username" size="15"
+                   
                  />
                 </td>
             </tr>
             <tr>
                 <th>Password: </th>
                 <td>
-                 <input type="number" name="password" size="15"
-                   value="<c:out value='${employee.password}' />"
-                 />
+                 <input class="form-control" type="number" name="password" size="15"/>
                 </td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <th>Type </th>
                 <td>
-				  <input type="radio" id="emp" name="hr" value="Employee">
+				  <input type="radio" id="emp" name="type" value="Employee">
 				  <label for="emp">Employee</label>
 				  <br>
-				  <input type="radio" id="manager" name="hr" value="Finance manager">
+				  <input type="radio" id="manager" name="type" value="Finance manager">
 				  <label for="manager">Finance manager</label>
                 </td>
-            </tr>
+            </tr> -->
             <tr>
              <td colspan="2" align="center">
               <input type="submit" value="Save" />
              </td>
             </tr>
         </table>
-        </form>
-    </div> 
-  </center>
-     --%>
+   </form>
+	
+	
+	</div>
+	
+	<div class="col-md-3"></div>
+</div>
+
+</div>
+  
+  
 </body>
 </html>

@@ -47,13 +47,13 @@ public class EmployeeServlet extends HttpServlet {
             	case "getall":
             		GetAllEmployees(request, response);
             	break;          
-                case "/add":
+                case "add":
                     addEmployee(request, response);
                     break;
-                case "/delete":
+                case "delete":
                     deleteEmployee(request, response);
                     break;
-                case "/update":
+                case "update":
                     updateEmployee(request, response);
                     break;
                 default:

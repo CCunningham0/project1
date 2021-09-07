@@ -6,9 +6,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Expense Reimbursement System</title>
-
 <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript">
+
+function deleteRow(elm, item){
+	if (!confirm('Are you sure?')){
+		return;
+		
+}
+	
+	$.ajax(
+			{
+				url:"http://localhost:8080/reimbursement/EmployeeServlet?action=delete&id="+item,
+				success: function(result){
+					$("tr.row-"+item).remove();
+					}});}
+
+
+/* $(document).ready(function() {	
+	$.ajax(
+			{
+				url:"http://localhost:8080/reimbursement/EmployeeServlet?action=update",
+				success:function(result){
+					
+	
+}});} */
+
 $(document).ready(function() {
 	$.ajax(
 			{url: "http://localhost:8080/reimbursement/EmployeeServlet?action=getall", 
@@ -18,18 +41,13 @@ $(document).ready(function() {
 					var tr ='';
 					$.each(result,function(i,item){
 						console.log(item.name);
- 						tr += '<tr><td>' + item.id + '</td>';
+						tr ='';
+ 						tr += '<tr class="row-'+item.id+'"><td>' + item.id + '</td>';
 						tr += '<td>' + item.name + '</td>';
 						tr += '<td>' + item.email + '</td>';
-						tr += '<td>' + 'add a link to the ticket table' + '</td>'
-						tr += '<td>' + 'Action' + '</td></tr>'; 
- 
- 						  var $tr = $('<tr>').append(
-								$('<td>').text(item.id),
-								$('<td>').text(item.name),
-								$('<td>').text(item.email),
-								$('<td>').text('link'),
-								$('<td>').text('')) ;  
+						tr += '<td>' + 'link to the ticket table' + '</td>'
+						tr += '<td>' + '<a href="#" onclick="deleteRow($(this),'+item.id+')">Delete</a>&nbsp<a href="employee-form.jsp">Edit</a>' + '</td></tr>'; 
+  
 						$('#employee').append(tr); 
 					}); 
 				}
@@ -38,7 +56,7 @@ $(document).ready(function() {
 </script>
 
 </head>
-<body>
+<body style="background-color: #a3c2c2;">
 <center>
   <h1>Expense Reimbursement System</h1>
         <h3>
@@ -61,25 +79,6 @@ $(document).ready(function() {
                 <th>Action</th>
             </tr>
             
-      <!--       <tr>
-            <td>''</td>
-            
-            </tr>
-            
-            <tr>
-            	<td>''</td>
-            </tr>
-            
-            <tr>
-            	<td>''</td>
-            </tr>
-            
-            <tr>
-            	<td>
-            	<a href="/delete">Delete Employee</a>
-            	<a href="employee-form.jsp">Edit Employee</a>
-            	 </td>
-            </tr> -->
             
         </table>
     </div> 
