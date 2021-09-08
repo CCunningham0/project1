@@ -37,7 +37,7 @@ public class EmployeeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		String action = request.getParameter("action");
 		
 
@@ -67,7 +67,7 @@ public class EmployeeServlet extends HttpServlet {
 		
 		
 		
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	private void updateEmployee(HttpServletRequest request, HttpServletResponse response) {
@@ -129,10 +129,10 @@ public class EmployeeServlet extends HttpServlet {
 	
 
 	private void addEmployee(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		
 		
 		response.setContentType("text/html");
-		// PrintWriter out = response.getWriter();
+		
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String username = request.getParameter("username");
@@ -182,24 +182,13 @@ public class EmployeeServlet extends HttpServlet {
 		}	
 		
 		
-//		List<Employee> employees = new ArrayList<Employee>();
-//		employees.add(new Employee(1, "M", "m@gmail.com", "m123", "123", "employee"));
-//		employees.add(new Employee(2, "S", "m@gmail.com", "m123", "123", "employee"));
-//		employees.add(new Employee(3, "N", "m@gmail.com", "m123", "123", "employee"));
-
-//		String jsonEmps = this.gson.toJson(employees);
-//		PrintWriter out = response.getWriter();
-//		response.setContentType("application/json");
-//		response.setCharacterEncoding("UTF-8");
-//		out.print(jsonEmps);
-//		out.flush();
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 		
 	}

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> --%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +11,7 @@
 
 function deleteRow(elm, item){
 	if (!confirm('Are you sure?')){
-		return;
-		
+		return;	
 }
 	
 	$.ajax(
@@ -36,7 +35,7 @@ $(document).ready(function() {
 	$.ajax(
 			{url: "http://localhost:8080/reimbursement/EmployeeServlet?action=getall", 
 				success: function(result){
-					//response = $.parseJSON(result);
+					
 					console.log(result);
 					var tr ='';
 					$.each(result,function(i,item){
@@ -56,21 +55,17 @@ $(document).ready(function() {
 </script>
 
 </head>
-<body style="background-color: #a3c2c2;">
+<body style="background-color: #BDBDBD;">
 <center>
   <h1>Expense Reimbursement System</h1>
-        <h3>
+        <h2>
          <a href="employee-form.jsp">Add New Employee</a> &nbsp
-<!--          <a href="/delete">Delete Employee</a> -->
-
          &nbsp;&nbsp;&nbsp;
-<!--          <a href="employee-list.jsp">List All Employees</a> -->
-         
         </h2>
  </center>
  <div  align="center">
         <table id="employee" border="1" cellpadding="5">
-            <caption><h2>List of All Employees</h2></caption>
+            <caption><h3>List of All Employees</h3></caption>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -78,8 +73,6 @@ $(document).ready(function() {
                 <th>Tickets Info</th>
                 <th>Action</th>
             </tr>
-            
-            
         </table>
     </div> 
 

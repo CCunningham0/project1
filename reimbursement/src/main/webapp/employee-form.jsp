@@ -10,18 +10,17 @@
 
 </head>
 	 
-<body style="background-color: #a3c2c2;">
+<body style="background-color: #BDBDBD;">
 
 
- 
 <div class="container-fluid">
 <div class="row">
 	<div class="col-md-3"></div>
 	<div class="col-md-6" style="text-align:center;" >
-	 <h1>Expense Reimbursement System</h1>
-        <h3>
+	 <h2>Expense Reimbursement System</h2>
+        <h4>
          <a href="employee-list.jsp">Back to List of All Employees</a>
-        </h3>
+        </h4>
 
 	
 	<form action="http://localhost:8080/reimbursement/EmployeeServlet?action=add" method="post">
@@ -56,19 +55,19 @@
                  <input class="form-control" type="number" name="password" size="15"/>
                 </td>
             </tr>
-            <!-- <tr>
+   			 <tr>
                 <th>Type </th>
                 <td>
 				  <input type="radio" id="emp" name="type" value="Employee">
 				  <label for="emp">Employee</label>
-				  <br>
+				  
 				  <input type="radio" id="manager" name="type" value="Finance manager">
 				  <label for="manager">Finance manager</label>
                 </td>
-            </tr> -->
+            </tr> 
             <tr>
              <td colspan="2" align="center">
-              <input type="submit" value="Save" />
+              <input type="submit" value="Save"/>
              </td>
             </tr>
         </table>
