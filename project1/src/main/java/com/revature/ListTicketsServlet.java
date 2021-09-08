@@ -5,11 +5,48 @@ import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 
+import com.google.gson.Gson;
+
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class ListTicketsServlet extends HttpServlet {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String action = request.getParameter("action");
+		try {
+			if (action == "getTickets") {
+				getAllTickets(request, response);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	private void getAllTickets(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		try {
+			List<Ticket> tickets = null;
+			ITicketDAO dao = TicketDAOFactory.getTicketDao();
+			tickets = dao.getTickets();
+			
+			String jsonStr = new Gson().toJson(tickets);
+			PrintWriter out = response.getWriter();
+			
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			out.print(jsonStr);
+			out.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		
+	}
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -85,4 +122,7 @@ public class ListTicketsServlet extends HttpServlet {
 		// send empty response
 		//response.sendRedirect("");
 	}
+	
+	
+	
 }
