@@ -9,7 +9,12 @@
 <link rel="stylesheet" href="styles.css">
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
-
+<style>
+	h1 {
+		text-align: center;
+		padding: 25px;
+	}
+</style>
 <script>
 	//TODO: Show different alert if add fails
 	function submitForm(elm, item) {
@@ -24,7 +29,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="index.jsp">Home</a>
+			<a class="navbar-brand" href="employee-list.jsp">Home</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
 				aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -33,17 +38,20 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
+					<a class="nav-link" href="employee-list.jsp">Employee List</a>
+					<a class="nav-link" href="employee-form.jsp">Add Employee</a>
+					<a class="nav-link" href="ticketList.jsp">Ticket List</a>
 					<a class="nav-link" href="addTicket.jsp">Add Ticket</a> 
-					 <a class="nav-link" href="ticketList.jsp">Ticket List</a>
 				</div>
 			</div>
 		</div>
 	</nav>
 
-	<form id="myForm" class="form-signin" action="addTicket" method="post" target="_top">
-		<img class="mb-4" src="img/ticket.jpg" alt="ticket image" width="200"
-			height="150">
-		<h1 class="h3 mb-3 font-weight-normal">Submit Ticket</h1>
+ 	<form id="myForm" class="form-signin" action="addTicket" method="post" target="_top">
+	<!-- 		<img class="mb-4" src="img/ticket.jpg" alt="ticket image" width="200"
+			height="150"> -->
+		<h1>Submit Ticket</h1>
+		
 		<input type="number" name="reimbursement_amount" class="form-control"
 			placeholder="Reimbursement amount" min="0.01" step="0.01" required
 			autofocus="">

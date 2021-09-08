@@ -16,25 +16,28 @@ public class DeleteTicketServlet extends HttpServlet {
 
 		// get ticket values
 		int ticketId = Integer.parseInt(request.getParameter("ticket_id").trim());
-		int userId = Integer.parseInt(request.getParameter("user_id"));
+		int employeeId = Integer.parseInt(request.getParameter("user_id"));
 		String status = request.getParameter("ticket_status");
 		String type = request.getParameter("ticket_type");
 		double amt = Double.parseDouble(request.getParameter("reimbursement_amount"));
 		String desc = request.getParameter("ticket_description");
 
-		// get the ticket by Id
-		//Ticket ticket = session.get(Ticket.class, ticketId);
-		Ticket ticket = new Ticket();
-
-		// create new ticket values with values from request
-		ticket.setUserId(userId);
-		ticket.setStatus(status);
-		ticket.setType(type);
-		ticket.setDescription(desc);
-		ticket.setReimbursementAmount(amt);
-		ticket.setTimestamp(new Date());
-
 		try {
+			// get the ticket by Id
+			//Ticket ticket = session.get(Ticket.class, ticketId);
+			Ticket ticket = new Ticket();
+			EmployeeDao empDao = EmployeeDAOFactory.getEmployeeDao();
+			Employee employee = empDao.getEmployeeById(employeeId);
+
+			// create new ticket values with values from request
+			ticket.setEmployeeId(employee);
+			ticket.setStatus(status);
+			ticket.setType(type);
+			ticket.setDescription(desc);
+			ticket.setReimbursementAmount(amt);
+			ticket.setTimestamp(new Date());
+
+
 			ITicketDAO dao = TicketDAOFactory.getTicketDao();
 			dao.deleteTicket(ticket);
 			System.out.println("Ticket updated!");

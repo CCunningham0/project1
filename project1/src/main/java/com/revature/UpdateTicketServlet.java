@@ -18,7 +18,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/UpdateTicketServlet")
 public class UpdateTicketServlet extends HttpServlet {
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		try {
@@ -37,10 +36,10 @@ public class UpdateTicketServlet extends HttpServlet {
 
 		int id = Integer.parseInt(request.getParameter("id"));
 		String status = request.getParameter("ticket_status");
-		
+
 		System.out.println(id);
 		System.out.println(status);
-		
+
 		try {
 			ticket = dao.getTicketById(id);
 			ticket.setStatus(status);
@@ -58,7 +57,7 @@ public class UpdateTicketServlet extends HttpServlet {
 
 		// get ticket values
 		int ticketId = Integer.parseInt(request.getParameter("ticket_id").trim());
-		int userId = Integer.parseInt(request.getParameter("user_id"));
+		int employeeId = Integer.parseInt(request.getParameter("employee_id"));
 		String status = request.getParameter("ticket_status");
 		String type = request.getParameter("ticket_type");
 		double amt = Double.parseDouble(request.getParameter("reimbursement_amount"));
@@ -67,9 +66,16 @@ public class UpdateTicketServlet extends HttpServlet {
 		// get the ticket by Id
 		//Ticket ticket = session.get(Ticket.class, ticketId);
 		Ticket ticket = new Ticket();
-
+		Employee employee = null;
+		
+		try {
+			EmployeeDao empDao = EmployeeDAOFactory.getEmployeeDao();
+			employee = empDao.getEmployeeById(employeeId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		// create new ticket values with values from request
-		ticket.setUserId(userId);
+		ticket.setEmployeeId(employee);
 		ticket.setStatus(status);
 		ticket.setType(type);
 		ticket.setDescription(desc);

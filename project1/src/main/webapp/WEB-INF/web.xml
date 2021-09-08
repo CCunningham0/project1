@@ -6,6 +6,20 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 
+	<welcome-file-list>
+		<welcome-file>employee-list.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>employeeServlet</servlet-name>
+		<servlet-class>com.revature.EmployeeServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>employeeServlet</servlet-name>
+		<url-pattern>/employeeServlet</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>updateTicket</servlet-name>
 		<servlet-class>com.revature.UpdateTicketServlet</servlet-class>

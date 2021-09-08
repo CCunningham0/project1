@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,7 +16,7 @@ th, td {
 
 h1 {
 	text-align: center;
-	padding: 25px;
+	margin: 25px;
 }
 
 #filterInput {
@@ -40,7 +39,7 @@ h1 {
 						$.each(result,function(i,item){
 							tr ='';
 	 						tr += '<tr class="row-' + item.id + '"><td>' + item.id + '</td>';
-							tr += '<td>' + item.userId + '</td>';
+							tr += '<td>' + item.employeeId.id + '</td>';
 							tr += '<td>' + item.type + '</td>';
 							tr += '<td>' + item.reimbursementAmount + '</td>';
 							tr += '<td>' + item.status + '</td>';
@@ -87,7 +86,7 @@ h1 {
 	}
 	
 	function updateTicket(elm, item){
-		let newStatus = prompt("Please enter a status: pending/accpted/rejected", "rejected");
+		let newStatus = prompt("Please enter a status (pending/accpted/rejected):", "pending");
 		let result;
 		newStatus.toLowerCase().trim();
 		
@@ -132,7 +131,7 @@ h1 {
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="index.jsp">Home</a>
+			<a class="navbar-brand" href="employee-list.jsp">Home</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
 				aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -141,8 +140,10 @@ h1 {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link" href="addTicket.jsp">Add Ticket</a> <a
-						class="nav-link" href="ticketList.jsp">Ticket List</a>
+					<a class="nav-link" href="employee-list.jsp">Employee List</a>
+					<a class="nav-link" href="employee-form.jsp">Add Employee</a>
+					<a class="nav-link" href="ticketList.jsp">Ticket List</a>
+					<a class="nav-link" href="addTicket.jsp">Add Ticket</a> 
 				</div>
 			</div>
 		</div>
@@ -152,9 +153,8 @@ h1 {
 		<h1>List of All Tickets</h1>
 	</div>
 
-
 	<div class="table_list" align="center">
-		<table id="tickets" class="table table-striped" border="1"
+		<table id="tickets" class="table" border="1"
 			cellpadding="5" style="width: 75%">
 					<input type="text" id="filterInput" onkeyup="filterTable()" placeholder="Filter by status">
 			

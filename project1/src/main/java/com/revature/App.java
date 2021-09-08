@@ -1,5 +1,6 @@
 package com.revature;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 import org.hibernate.Session;
@@ -11,8 +12,9 @@ public class App {
 
 	public static void main( String[] args )
 	{
-		System.out.println("Project started...");
 		/*
+		System.out.println("Project started...");
+		
 //		// create a configuration object
 		Configuration cfg = new Configuration();
 
@@ -29,20 +31,35 @@ public class App {
 
 		
 		
-		ITicketDAO ticketDao = new TicketDAOImpl();
+		//ITicketDAO ticketDao = new TicketDAOImpl();
+		
+		// create employee
+      Employee employee =new Employee();
+      employee.setId(3);
+      employee.setName("Lily");
+      employee.setEmail("s@gmail.com");
+      employee.setUsername("sara23");
+      employee.setPassword("123");
+      EmployeeDao eDao = new EmployeeDaoImpl();
 		
 		
-		//create ticket
-		Ticket ticket = new Ticket();
-		ticket.setUserId(1);
-		ticket.setStatus("pending");
-		ticket.setType("accepted"); //pending/approved/rejected
-		ticket.setReimbursementAmount(10);
-		ticket.setDescription("placeholder description");
-		ticket.setTimestamp(new Date());
+		// create ticket
+//		Ticket ticket = new Ticket();
+//		ticket.setUserId(1);
+//		ticket.setStatus("pending");
+//		ticket.setType("accepted"); //pending/approved/rejected
+//		ticket.setReimbursementAmount(10);
+//		ticket.setDescription("placeholder description");
+//		ticket.setTimestamp(new Date());
 
+      	try {
+			eDao.addEmployee(employee);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// save the ticket
-		session.save(ticket);
+		session.save(employee);
 //
 		// commit the transaction/		
 		t.commit();
@@ -53,7 +70,10 @@ public class App {
 //        System.out.println(list);
 		
 		session.close();
+		
+		
 		*/
+		
 	}
 }
 

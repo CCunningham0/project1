@@ -2,10 +2,10 @@ package com.revature;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,8 +20,9 @@ public class Ticket {
 	@GeneratedValue  
 	private int id;
 	
-	// foreign key in user/employee table
-	private int userId; 
+//	// foreign key in user/employee table
+//	@Column(name = "user_id", nullable = false)
+//	private int employeeId; 
 	
 	@Column(name = "ticket_type", nullable = false)
 	private String type;
@@ -38,12 +39,16 @@ public class Ticket {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timestamp;
 	
+	@ManyToOne
+	@JoinColumn(name="employee_id", nullable = false)
+	private Employee employeeId;
+	
 	public Ticket () {};
 	
-	public Ticket (int id, int userId, String type, String status,
+	public Ticket (int id, Employee employeeId, String type, String status,
 			double reimbursementAmount, String description, Date timestamp) {
 		this.id = id;
-		this.userId = userId;
+		this.employeeId = employeeId;
 		this.type = type;
 		this.status = status;
 		this.reimbursementAmount = reimbursementAmount;
@@ -58,12 +63,12 @@ public class Ticket {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getEmployeeId() {
+		return employeeId.getId();
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setEmployeeId(Employee employeeId) {
+		this.employeeId = employeeId;
 	}
 
 	public String getType() {

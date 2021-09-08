@@ -18,6 +18,7 @@
 		<property name="hbm2ddl.auto">update</property>
 		<property name="show_sql">true</property>
 		<mapping class="com.revature.Ticket"/>
+		<mapping class="com.revature.Employee"/>
 		<!-- <mapping class="revature.hibernate_demo_app.Address"/>  -->
 	</session-factory>
 </hibernate-configuration>
