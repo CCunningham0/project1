@@ -11,19 +11,18 @@ import org.hibernate.Transaction;
 
 public class AddTicketServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+		response.setContentType("text/html");
 
-		//FIXME: pass in user id (from session management?)
+		// TODO: use this once user_id available
 		//int userId = Integer.parseInt(request.getParameter("user_id"));
-
 		double amt = Double.parseDouble(request.getParameter("reimbursement_amount"));
 		String desc = request.getParameter("ticket_description");
 		String type = request.getParameter("ticket_type");
 
 		// create a new ticket
 		Ticket ticket = new Ticket();
+
 		// update ticket values with values from request
-		
-		//FIXME: get userId
 		ticket.setUserId(1);
 		ticket.setStatus("pending");
 		ticket.setType(type);
@@ -31,17 +30,15 @@ public class AddTicketServlet extends HttpServlet {
 		ticket.setReimbursementAmount(amt);
 		ticket.setTimestamp(new Date());
 
-
-		// send empty response
-		//response.sendRedirect("");
 		try {
 			ITicketDAO dao = TicketDAOFactory.getTicketDao();
 			dao.addTicket(ticket);
+			response.sendRedirect("ticketList.jsp");
 			System.out.println("Ticket updated!");
 		} catch (Exception e) {
 			System.out.println("Something went wrong");
 			e.printStackTrace();
 		}
 
-		}
 	}
+}

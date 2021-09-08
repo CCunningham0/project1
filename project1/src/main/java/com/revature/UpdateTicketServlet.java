@@ -3,17 +3,56 @@ package com.revature;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.google.gson.Gson;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+@WebServlet("/UpdateTicketServlet")
 public class UpdateTicketServlet extends HttpServlet {
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		try {
+			if (action.equals("updateTicket")) {
+				updateTicket(request, response);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
+	protected void updateTicket(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException {
+		response.setContentType("text/html");
+		ITicketDAO dao = TicketDAOFactory.getTicketDao();
+		Ticket ticket = new Ticket();
+
+		int id = Integer.parseInt(request.getParameter("id"));
+		String status = request.getParameter("ticket_status");
+		
+		System.out.println(id);
+		System.out.println(status);
+		
+		try {
+			ticket = dao.getTicketById(id);
+			ticket.setStatus(status);
+			dao.updateTicket(ticket);
+			response.sendRedirect("ticketList.jsp");
+			System.out.println("Ticket updated!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
@@ -40,14 +79,11 @@ public class UpdateTicketServlet extends HttpServlet {
 		try {
 			ITicketDAO dao = TicketDAOFactory.getTicketDao();
 			dao.updateTicket(ticket);
+			response.sendRedirect("ticketList.jsp");
 			System.out.println("Ticket updated!");
 		} catch (Exception e) {
 			System.out.println("Something went wrong");
 			e.printStackTrace();
 		}
-
-
-		// send empty response
-		//response.sendRedirect("");
 	}
 }

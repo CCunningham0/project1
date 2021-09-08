@@ -9,12 +9,22 @@
 <link rel="stylesheet" href="styles.css">
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css" />
+
+<script>
+	//TODO: Show different alert if add fails
+	function submitForm(elm, item) {
+		$('#myForm')
+		.ajax({
+			url: "http://localhost:8080/project1/AddTicketServlet?action=addTicket&user_id=" + item,
+			success: alert("Ticket added!")
+		});
+	}
+</script>
 </head>
 <body>
-
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="index.jsp">Navbar</a>
+			<a class="navbar-brand" href="index.jsp">Home</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
 				aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -23,15 +33,14 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link" href="addTicket.jsp">Add Ticket</a> <a
-						class="nav-link disabled" href="updateTicket.jsp">Update Ticket</a> <a
-						class="nav-link" href="ticketList.jsp">Ticket List</a>
+					<a class="nav-link" href="addTicket.jsp">Add Ticket</a> 
+					 <a class="nav-link" href="ticketList.jsp">Ticket List</a>
 				</div>
 			</div>
 		</div>
 	</nav>
 
-	<form class="form-signin" action="addTicket" method="post">
+	<form id="myForm" class="form-signin" action="addTicket" method="post" target="_top">
 		<img class="mb-4" src="img/ticket.jpg" alt="ticket image" width="200"
 			height="150">
 		<h1 class="h3 mb-3 font-weight-normal">Submit Ticket</h1>
@@ -68,8 +77,11 @@
 			</div>
 		</fieldset>
 
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+		<!-- TODO: replace placeholder number with userId -->
+		<button onclick="submitForm($(this),' + 2 + ')" id="submitButton" class="btn btn-lg btn-primary btn-block" type="submit" >Submit</button>
+		
 		<p class="mt-5 mb-3 text-muted">© 2021 - All time</p>
+
 	</form>
 </body>
 </html>
