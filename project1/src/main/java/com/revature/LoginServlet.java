@@ -15,20 +15,6 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String action = request.getParameter("action");
 		validateLogin(request, response);
-		
-		if (action == null) {
-			request.setAttribute("error", "Invalid action.");
-			//response.sendRedirect("login.jsp");
-		} else {
-		
-		if (action.equals("login")) {
-			System.out.println("IN DOGET AND PAST ACTION CHECK");
-			validateLogin(request, response);
-		} else {
-			request.setAttribute("error", "Invalid action.");
-			//response.sendRedirect("login.jsp");
-		}
-		}
 	}
 	
 	private void validateLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -58,10 +44,9 @@ public class LoginServlet extends HttpServlet {
 					out.println("</script>");
 				} else {
 					out.println("<script type=\"text/javascript\">");
-					out.println("alert('Sorry, Successfully logged in!');");
+					out.println("alert('Successfully logged in!');");
 					out.println("window.location.href='employee-list.jsp';");
 					out.println("</script>");
-					
 				}
 			}
 		} catch (Exception e) {
